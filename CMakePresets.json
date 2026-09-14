@@ -1,24 +1,32 @@
 {
-  "version": 3,
-  "configurePresets": [
-    {
-      "name": "android-arm64",
-      "displayName": "Android Qt 6.11.2 (arm64-v8a)",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build-android",
+    "version": 3,
 
-      "environment": {
-        "JAVA_HOME": "/usr/lib/jvm/java-21-temurin-jdk",
-        "PATH": "/usr/lib/jvm/java-21-temurin-jdk/bin:$penv{PATH}"
-      },
+    "configurePresets": [
+        {
+            "name": "linux",
+            "displayName": "Linux",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/build-linux"
+        },
 
-      "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "$env{HOME}/Qt/6.11.2/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
-        "ANDROID_ABI": "arm64-v8a",
-        "ANDROID_PLATFORM": "android-35",
-        "ANDROID_SDK_ROOT": "$env{HOME}/Android/Sdk",
-        "ANDROID_NDK_ROOT": "$env{HOME}/Android/Sdk/ndk/27.2.12479018"
-      }
-    }
-  ]
+        {
+            "name": "android-arm64",
+            "displayName": "Android (arm64-v8a)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/build-android",
+
+            "environment": {
+                "JAVA_HOME": "/usr/lib/jvm/java-21-temurin-jdk",
+                "PATH": "/usr/lib/jvm/java-21-temurin-jdk/bin:$penv{PATH}"
+            },
+
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{HOME}/Qt/6.11.2/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
+                "ANDROID_ABI": "arm64-v8a",
+                "ANDROID_PLATFORM": "android-35",
+                "ANDROID_SDK_ROOT": "$env{HOME}/Android/Sdk",
+                "ANDROID_NDK_ROOT": "$env{HOME}/Android/Sdk/ndk/27.2.12479018"
+            }
+        }
+    ]
 }
